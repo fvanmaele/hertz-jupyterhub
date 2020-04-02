@@ -2,7 +2,7 @@ FROM jupyterhub/jupyterhub:latest
 
 # Add notebook modules
 RUN pip install notebook
-RUN pip install numpy scipy
+RUN pip install numpy scipy matplotlib
 
 # Generate default configuration
 RUN mkdir /etc/jupyterhub
@@ -21,5 +21,3 @@ RUN useradd -m admin3 -s /bin/bash -p "KXUP4Vp8iNfEI"
 RUN echo "c.Authenticator.admin_users = {'admin1', 'admin2', 'admin3'}" \
     >> /etc/jupyterhub/jupyterhub_config.py
 RUN echo "c.JupyterHub.admin_access = True" >> /etc/jupyterhub/jupyterhub_config.py
-
-# TODO: set up SSL
